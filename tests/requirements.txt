@@ -1,0 +1,4 @@
+# For tests/test_render.py only. The page itself has no dependencies.
+pytest==9.1.1
+playwright==1.62.0
+axe-playwright-python==0.1.8

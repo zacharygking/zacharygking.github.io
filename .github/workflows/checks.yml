@@ -1,0 +1,50 @@
+# Runs on every push and pull request. GitHub Pages publishes main whether or not these pass.
+name: Checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  static:
+    name: Static checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Install pdftotext
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
+      - name: Links, files, color tokens, stats, phone numbers and contact links
+        run: python3 tests/check_site.py --require-pdf
+
+  render:
+    name: Mobile, light and dark (${{ matrix.engine }})
+    # macOS, so the page renders with the same system fonts iPhone and Mac visitors see
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        engine: [chromium, webkit]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: tests/requirements.txt
+      - run: pip install -r tests/requirements.txt
+      - run: python -m playwright install ${{ matrix.engine }}
+      - name: Phone, tablet and desktop widths in light and dark mode
+        run: python -m pytest tests -q
+        env:
+          ENGINES: ${{ matrix.engine }}
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: screenshots-${{ matrix.engine }}
+          path: tests/screenshots/
+          if-no-files-found: ignore

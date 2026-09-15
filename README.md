@@ -19,6 +19,7 @@ Don't commit private notes.
 - `favicon.ico`: the 32px icon wrapped as an ICO, for tools that only ask for `/favicon.ico`.
 - `robots.txt`: allows all crawlers.
 - `.nojekyll`: tells GitHub Pages to serve the files as they are.
+- `tests/` and `.github/workflows/checks.yml`: the checks described below.
 
 ## Editing
 
@@ -28,6 +29,7 @@ Don't commit private notes.
   and dot patterns live in the hidden `<svg class="defs">` at the top of the page.
 - **Stats** under the name are a `<dl class="stats">`. Keep each label specific about what
   its number counts. `source/og.html` repeats them, so update it and re-render `og.png` too.
+  The static checks fail if the two differ.
 - **Experience:** each work item is a `.work-name` and a `.detail`. Work that has a card links to
   it by `id` (`<span class="work-name"><a href="#tone">…</a></span>`).
 - **Projects:** a commented-out `#projects` section sits right after `#work`. Uncomment it
@@ -37,6 +39,34 @@ Don't commit private notes.
 - **Footer year:** update it in `index.html`.
 
 To preview, open `index.html` in a browser.
+
+## Checks
+
+GitHub Actions runs two jobs on every push:
+
+- **Static checks** (`tests/check_site.py`, no dependencies):
+  - tags are balanced and ids are unique
+  - in-page links, illustration references and local files all resolve
+  - the head has the mobile and color-scheme tags
+  - every color token has a dark-mode and a print value
+  - the stats match `source/og.html`
+  - no phone number appears in the page or the resume
+  - the page and `resume.pdf` list the same contact links
+- **Render checks** (`tests/test_render.py`): Chromium and WebKit on macOS, at phone, tablet and
+  desktop widths, in light and dark mode.
+  - The page must not scroll sideways.
+  - Tap targets on phones must be at least 44px tall.
+  - axe-core's WCAG 2.2 A and AA rules, including color contrast, must pass.
+  - Each run uploads screenshots.
+
+Pages publishes `main` whether or not the checks pass, so run them before pushing:
+
+```sh
+python3 tests/check_site.py          # reads resume.pdf with pdftotext; without it, pass --pdf-text FILE
+uv venv --python 3.12 .venv && uv pip install --python .venv/bin/python -r tests/requirements.txt
+.venv/bin/python -m playwright install chromium webkit
+.venv/bin/python -m pytest tests -q  # screenshots go to tests/screenshots/
+```
 
 ## Deploying
 
