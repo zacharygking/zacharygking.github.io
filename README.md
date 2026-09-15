@@ -11,7 +11,11 @@ Don't commit private notes.
 - `index.html`: all page content, in page order.
 - `styles.css`: layout and colors. Color tokens are at the top, with the dark-mode overrides
   right below them.
-- `resume.pdf`: the resume linked from the page.
+- `resume.pdf`: the resume linked from the page. It's the site build, with no phone number.
+- `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png`: the ZK icon. The PNGs are rendered
+  from `source/icon.html`.
+- `og.png`: the 1200×630 link-preview image, rendered from `source/og.html`. Both source pages
+  start with the headless Chrome command that renders them.
 - `.nojekyll`: tells GitHub Pages to serve the files as they are.
 
 ## Editing
@@ -26,7 +30,8 @@ Don't commit private notes.
   (`<li class="linked"><a href="#tone">…</a></li>`).
 - **Projects:** a commented-out `#projects` section sits right after `#work`. Uncomment it
   when there's something public to show.
-- **Resume:** overwrite `resume.pdf`, keeping the same file name.
+- **Resume:** overwrite `resume.pdf` with the site build of the resume (no phone number),
+  keeping the same file name.
 - **Footer year:** update it in `index.html`.
 
 To preview, open `index.html` in a browser.

@@ -1,0 +1,31 @@
+<!doctype html>
+<!--
+  Source for the PNG icons. Render with headless Chrome from the repo root, e.g.:
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --hide-scrollbars \
+      --force-device-scale-factor=1 --default-background-color=00000000 \
+      --window-size=180,180 --screenshot=apple-touch-icon.png "file://$PWD/source/icon.html?size=180"
+  Add &round=1 for the round 32px favicon-32.png.
+-->
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<title>Icon source</title>
+<style>
+  html, body { margin: 0; background: transparent; }
+  .icon {
+    display: grid;
+    place-items: center;
+    background: #111318;
+    color: #f3f4f6;
+    font: 700 var(--fs, 76px)/1 Charter, "Bitstream Charter", Georgia, serif;
+    letter-spacing: -0.02em;
+  }
+</style>
+<div class="icon" id="icon">ZK</div>
+<script>
+  const params = new URLSearchParams(location.search);
+  const size = Number(params.get("size")) || 180;
+  const icon = document.getElementById("icon");
+  icon.style.width = icon.style.height = size + "px";
+  icon.style.setProperty("--fs", Math.round(size * 0.42) + "px");
+  if (params.get("round") === "1") icon.style.borderRadius = "50%";
+</script>

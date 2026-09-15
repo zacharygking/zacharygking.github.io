@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    .bg { fill: #111318; }
+    .fg { fill: #f3f4f6; font: 700 15px Charter, "Bitstream Charter", Georgia, serif; letter-spacing: -0.3px; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #ecedf0; }
+      .fg { fill: #0c0d10; }
+    }
+  </style>
+  <circle class="bg" cx="16" cy="16" r="16"/>
+  <text class="fg" x="16" y="21" text-anchor="middle">ZK</text>
+</svg>
