@@ -1,5 +1,7 @@
 # zacharygking.github.io
 
+[![Checks](https://github.com/zacharygking/zacharygking.github.io/actions/workflows/checks.yml/badge.svg?branch=main)](https://github.com/zacharygking/zacharygking.github.io/actions/workflows/checks.yml)
+
 My personal site: one static page in plain HTML and CSS. No build step, no dependencies, and
 no JavaScript on the page.
 
