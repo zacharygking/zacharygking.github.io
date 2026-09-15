@@ -16,8 +16,14 @@ Don't commit private notes.
 
 ## Editing
 
-- **Case studies** are in `#work`. To add one, copy an `<article class="case">` block: a
-  kicker, a heading, one metric, and 2–4 sentences.
+- **Case studies** are cards in `#work`. To add one, copy an `<article class="case">` block:
+  an `id`, a 400×160 inline SVG illustration, one chip, a kicker, a heading, and 2–4
+  sentences. Illustration colors come from classes in `styles.css`, and the shared arrowhead
+  and dot patterns live in the hidden `<svg class="defs">` at the top of the page.
+- **Stats** under the name are a `<dl class="stats">`. Keep each label specific about what
+  its number counts.
+- **Experience:** work that has a card links to it by `id`
+  (`<li class="linked"><a href="#tone">…</a></li>`).
 - **Projects:** a commented-out `#projects` section sits right after `#work`. Uncomment it
   when there's something public to show.
 - **Resume:** overwrite `resume.pdf`, keeping the same file name.
