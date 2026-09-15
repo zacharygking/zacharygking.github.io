@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Zachary King · Applied ML Engineer</title>
-  <meta name="description" content="Zachary King is an Applied ML Engineer at Apple working on LLM adapters, evaluation, and on-device language models.">
+  <meta name="description" content="Zachary King is an Applied ML Engineer at Apple who builds ML-powered product features, from LLM adapters and prompt optimization to on-device models.">
   <meta name="color-scheme" content="light dark">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Zachary King · Applied ML Engineer">
-  <meta property="og:description" content="Applied ML Engineer at Apple working on LLM adapters, evaluation, and on-device language models.">
+  <meta property="og:description" content="Applied ML Engineer at Apple building ML-powered product features, from LLM adapters and prompt optimization to on-device models.">
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -16,7 +16,7 @@
   <div class="page">
     <header class="site-header">
       <h1>Zachary King</h1>
-      <p class="tagline">Applied ML Engineer at Apple: LLM adapters, evaluation, and on-device language models</p>
+      <p class="tagline">Applied ML Engineer at Apple, building ML-powered product features</p>
       <ul class="contact">
         <li><a href="mailto:zacharygking@icloud.com">zacharygking@icloud.com</a></li>
         <li><a href="https://www.linkedin.com/in/zacharygking/" rel="me">LinkedIn</a></li>
@@ -26,17 +26,31 @@
 
     <main>
       <section id="about" aria-label="About">
-        <p class="lead">I’ve spent 8 years doing applied ML at Apple. I authored a team’s multi-label evaluation-metric standard, earned named project responsibility, and then owned multilingual LLM features that shipped. I was engineering owner of the Professional tone’s internationalization across 20+ locales in Writing Tools. Then I became full owner of another text feature.</p>
+        <p class="lead">I’ve spent 8 years at Apple building ML into features people use. I took over the Professional tone’s internationalization and adapter training in Writing Tools and shipped it in 20+ locales, then owned another text feature end to end. Before that, I shipped suggested Tab Group names in Safari and keyboard vocabulary learning on 5 platforms. Evaluation is my strongest skill, but what I enjoy most is the product side: prototyping features and getting them to ship.</p>
       </section>
 
       <section id="work" aria-labelledby="work-title">
         <h2 id="work-title">Selected work</h2>
 
         <article class="case">
+          <p class="kicker">Writing Tools · Prompt optimization · Evaluation</p>
+          <h3>A Writing Tools feature, end to end</h3>
+          <p class="metric"><strong class="word">Owner</strong> prototyping through evaluation</p>
+          <p class="body">I owned a Writing Tools feature through prototyping, data synthesis, prompt optimization, and evaluation. I built its per-locale optimization loop on the team’s platform (DSPy/GEPA) and gave each quality judge its own reward, so the optimizer could tell a near miss from an outright failure. I also built the evaluation datasets, benchmarked the automated grader against human grades, and adjudicated every disagreement. The grader proved more defensible than the human baseline, and the feature reached its shipping evaluation targets.</p>
+        </article>
+
+        <article class="case">
           <p class="kicker">Writing Tools · LLM adapters</p>
-          <h3>Multilingual tone adapters</h3>
+          <h3>Multilingual Professional tone</h3>
           <p class="metric"><strong>20+</strong> locales, shipped over two waves</p>
-          <p class="body">I owned the internationalization of the Professional tone in Writing Tools. I built the data-synthesis pipelines, fine-tuned the LoRA adapters on locale data produced with localization partners, and took them through sign-off to release. They shipped in 20+ locales over two waves. Separately, I moved the Friendly tone onto new base models.</p>
+          <p class="body">I took over the Professional tone’s internationalization and adapter training. I built the data-synthesis pipelines, fine-tuned the LoRA adapters on locale data produced with localization partners, and took them through sign-off to release. They shipped in 20+ locales over two waves. Separately, I moved the Friendly tone onto new base models.</p>
+        </article>
+
+        <article class="case">
+          <p class="kicker">Safari · Knowledge graph</p>
+          <h3>Safari Tab Group naming</h3>
+          <p class="metric"><strong class="word">ML + UI</strong> shipped on iOS and macOS</p>
+          <p class="body">I mapped a web-directory taxonomy onto knowledge-graph entities so per-page topics rolled up into higher-level topics for grouping. I wrote the naming UI and the topic lookup, and shipped suggested Tab Group names on iOS and macOS.</p>
         </article>
 
         <article class="case">
@@ -49,15 +63,15 @@
         <article class="case">
           <p class="kicker">Handwriting · On-device models</p>
           <h3>Handwriting language models</h3>
-          <p class="metric"><strong>~290×</strong> on-device compression</p>
+          <p class="metric"><strong>4</strong> features shipped on its models</p>
           <p class="body">I extended the character n-gram pipeline to 13 locales and shipped its models behind Scribble, Live Text, Smart Script, and Visual Intelligence. The n-grams compressed about 290× on device.</p>
         </article>
 
         <article class="case">
-          <p class="kicker">On-device ML · Evaluation</p>
-          <h3>Neural topic classifier</h3>
-          <p class="metric"><strong class="word">Proposal → owner</strong> about ten months apart</p>
-          <p class="body">I authored the dataset spec and architecture proposal for replacing a shipped Lucene/Java topic classifier with a neural one, along with the team’s multi-label evaluation-metric standard. About ten months later, I was named engineering owner of that replacement, sized to the Neural Engine’s on-device memory budget.</p>
+          <p class="kicker">Siri · Prototyping</p>
+          <h3>Siri rotation program</h3>
+          <p class="metric"><strong>6</strong> three-month projects</p>
+          <p class="body">I started at Apple with six three-month projects in a rotation program. Among them, I prototyped a Core ML profiler in Xcode that exposed per-layer latency and compute-unit placement, shipped NBA Draft answers to iOS, macOS, watchOS, and tvOS, and stood up a search-quality harness across 4 retrieval backends behind one rating UI.</p>
         </article>
       </section>
 
