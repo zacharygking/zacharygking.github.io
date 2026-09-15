@@ -17,6 +17,8 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Zachary King, Applied ML Engineer at Apple, building ML-powered product features">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image:alt" content="Zachary King, Applied ML Engineer at Apple, building ML-powered product features">
+  <link rel="canonical" href="https://zacharygking.github.io/">
   <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -38,22 +40,22 @@
   <div class="page">
     <header class="site-header">
       <div class="topbar">
-        <a class="mark" href="#top" aria-label="Zachary King, back to top">ZK</a>
+        <a class="mark" href="#top" aria-label="ZK, Zachary King, back to top">ZK</a>
         <nav aria-label="Sections">
-          <ul class="nav">
+          <ul class="nav" role="list">
             <li><a href="#work">Work</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#skills">Skills</a></li>
-            <li><a class="resume" href="resume.pdf" download="Zachary-King-Resume.pdf"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v7.5M4.75 6.75 8 10l3.25-3.25M3 13.25h10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Resume</a></li>
           </ul>
         </nav>
+        <a class="resume" href="resume.pdf" aria-label="Resume (PDF)"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v7.5M4.75 6.75 8 10l3.25-3.25M3 13.25h10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Resume</a>
       </div>
 
-      <div class="hero" id="top">
+      <div class="hero">
         <p class="eyebrow">Applied ML Engineer at Apple</p>
         <h1>Zachary King</h1>
         <p class="tagline">Building ML-powered product features</p>
-        <ul class="contact">
+        <ul class="contact" role="list">
           <li><a href="mailto:zacharygking@icloud.com">zacharygking@icloud.com</a></li>
           <li><a href="https://www.linkedin.com/in/zacharygking/" rel="me">LinkedIn</a></li>
         </ul>
@@ -61,7 +63,7 @@
           <div><dt>years building ML at Apple</dt><dd>8</dd></div>
           <div><dt>locales for the Professional tone</dt><dd>20+</dd></div>
           <div><dt>platforms for keyboard vocabulary learning</dt><dd>5</dd></div>
-          <div><dt>features shipped on the handwriting models</dt><dd>4</dd></div>
+          <div><dt>features running the handwriting models</dt><dd>4</dd></div>
         </dl>
       </div>
     </header>
@@ -72,7 +74,7 @@
       </section>
 
       <section id="work" aria-labelledby="work-title">
-        <h2 id="work-title">Selected work <small>6 projects</small></h2>
+        <h2 id="work-title">Selected work</h2>
         <div class="cards">
 
           <article class="case" id="writing-tools">
@@ -85,7 +87,7 @@
                 <path class="arrow" d="M95 60H109" marker-end="url(#arrowhead)"/>
                 <path class="arrow" d="M171 60H185" marker-end="url(#arrowhead)"/>
                 <path class="arrow" d="M269 60H283" marker-end="url(#arrowhead)"/>
-                <path class="arrow" d="M337 45C337 14 236 14 232 42" marker-end="url(#arrowhead)"/><text x="284" y="22" text-anchor="middle">reward</text>
+                <path class="arrow" d="M337 45C337 14 236 14 232 42" marker-end="url(#arrowhead)"/><text x="284" y="15" text-anchor="middle">reward</text>
                 <rect class="pass" x="12" y="104" width="120" height="10" rx="5"/><rect class="near" x="140" y="104" width="120" height="10" rx="5"/><rect class="fail" x="268" y="104" width="120" height="10" rx="5"/>
                 <text x="12" y="134">pass</text><text x="140" y="134">near miss</text><text x="268" y="134">fail</text>
               </svg>
@@ -93,7 +95,7 @@
             <div class="text">
               <p class="meta"><span class="chip">Owner</span><span class="kicker">Writing Tools · Prompt optimization · Evaluation</span></p>
               <h3>A Writing Tools feature, end to end</h3>
-              <p class="body">I owned a Writing Tools feature through prototyping, data synthesis, prompt optimization, and evaluation. I built its per-locale optimization loop on the team’s platform (DSPy/GEPA) and gave each quality judge its own reward, so the optimizer could tell a near miss from an outright failure. I also built the evaluation datasets, benchmarked the automated grader against human grades, and adjudicated every disagreement. The grader proved more defensible than the human baseline, and the feature reached its shipping evaluation targets.</p>
+              <p class="body">I owned a Writing Tools feature through prototyping, data synthesis, prompt optimization and evaluation. I built its per-locale optimization loop on the team’s platform (DSPy/GEPA) and gave each quality judge its own reward, so the optimizer could tell a near miss from an outright failure. I also built the evaluation datasets, benchmarked the automated grader against human grades, and adjudicated every disagreement. The grader proved more defensible than the human baseline, and the feature reached its shipping evaluation targets.</p>
             </div>
           </article>
 
@@ -102,7 +104,7 @@
               <svg viewBox="0 0 400 160" aria-hidden="true">
                 <text x="16" y="45">wave 1</text><rect x="80" y="30" width="310" height="22" fill="url(#dots-filled)" mask="url(#fade-right)"/>
                 <text x="16" y="91">wave 2</text><rect x="80" y="76" width="310" height="22" fill="url(#dots-open)" mask="url(#fade-right)"/>
-                <text class="accent-text" x="16" y="136">20+ locales · LoRA adapters</text>
+                <text class="accent-text" x="16" y="136">LoRA adapters · two waves</text>
               </svg>
             </div>
             <div class="text">
@@ -155,13 +157,13 @@
                 <path class="pen" d="M40 62C52 26 70 24 74 50S88 80 104 52S128 22 138 54S160 82 176 50S204 26 214 56S240 80 256 50S286 30 296 58S330 74 356 46"/><circle class="dot" cx="360" cy="42" r="4.5"/>
                 <rect class="node" x="90" y="100" width="40" height="32" rx="6"/><rect class="soft" x="138" y="100" width="40" height="32" rx="6"/><rect class="soft" x="186" y="100" width="40" height="32" rx="6"/><rect class="soft" x="234" y="100" width="40" height="32" rx="6"/><rect class="node" x="282" y="100" width="40" height="32" rx="6"/>
                 <text class="glyph" x="110" y="121" text-anchor="middle">w</text><text class="glyph" x="158" y="121" text-anchor="middle">o</text><text class="glyph" x="206" y="121" text-anchor="middle">r</text><text class="glyph" x="254" y="121" text-anchor="middle">d</text><text class="glyph" x="302" y="121" text-anchor="middle">s</text>
-                <text x="138" y="152">character 3-gram</text>
+                <text x="138" y="152">character n-gram</text>
               </svg>
             </div>
             <div class="text">
-              <p class="meta"><span class="chip">4 features</span><span class="kicker">Handwriting · On-device models</span></p>
+              <p class="meta"><span class="chip">Behind 4 features</span><span class="kicker">Handwriting · On-device models</span></p>
               <h3>Handwriting language models</h3>
-              <p class="body">I extended the character n-gram pipeline to 13 locales and shipped its models behind Scribble, Live Text, Smart Script, and Visual Intelligence. The n-grams compressed about 290× on device.</p>
+              <p class="body">I extended the character n-gram pipeline to 13 locales and shipped its models behind Scribble, Live Text, Smart Script and Visual Intelligence. The n-grams compressed about 290× on device.</p>
             </div>
           </article>
 
@@ -171,15 +173,15 @@
                 <circle class="seg" cx="88" cy="80" r="50" stroke-dasharray="48.36 4" transform="rotate(-90 88 80)"/>
                 <circle class="seg on" cx="88" cy="80" r="50" stroke-dasharray="48.36 265.8" transform="rotate(-90 88 80)"/>
                 <text class="ring-num" x="88" y="89" text-anchor="middle">6</text>
-                <circle class="dot" cx="180" cy="52" r="3.5"/><text x="192" y="56">prototype · Core ML profiler</text>
-                <circle class="dot" cx="180" cy="80" r="3.5"/><text x="192" y="84">ship · NBA Draft answers</text>
-                <circle class="dot" cx="180" cy="108" r="3.5"/><text x="192" y="112">measure · search quality</text>
+                <circle class="dot" cx="160" cy="52" r="3.5"/><text x="170" y="56">prototype · Core ML profiler</text>
+                <circle class="dot" cx="160" cy="80" r="3.5"/><text x="170" y="84">ship · NBA Draft answers</text>
+                <circle class="dot" cx="160" cy="108" r="3.5"/><text x="170" y="112">measure · search quality</text>
               </svg>
             </div>
             <div class="text">
               <p class="meta"><span class="chip">6 projects</span><span class="kicker">Siri · Prototyping</span></p>
               <h3>Siri rotation program</h3>
-              <p class="body">I started at Apple with six three-month projects in a rotation program. Among them, I prototyped a Core ML profiler in Xcode that exposed per-layer latency and compute-unit placement, shipped NBA Draft answers to iOS, macOS, watchOS, and tvOS, and stood up a search-quality harness across 4 retrieval backends behind one rating UI.</p>
+              <p class="body">I started at Apple with six three-month projects in a rotation program. Among them, I prototyped a Core ML profiler in Xcode that exposed per-layer latency and compute-unit placement, shipped NBA Draft answers to iOS, macOS, watchOS and tvOS, and stood up a search-quality harness across 4 retrieval backends behind one rating UI.</p>
             </div>
           </article>
         </div>
@@ -205,21 +207,24 @@
       -->
 
       <section id="experience" aria-labelledby="experience-title">
-        <h2 id="experience-title">Experience <small>Linked work has a project card above</small></h2>
-        <ol class="timeline">
+        <div class="section-head">
+          <h2 id="experience-title">Experience</h2>
+          <p class="section-note">Linked work has a project card above</p>
+        </div>
+        <ol class="timeline" role="list">
           <li><span class="when">2018 – Present</span><span class="role">Apple Inc.</span></li>
           <li><span class="when">2019 – Present</span><span class="role">Applied ML Engineer</span>
             <p class="role-note">I authored a team’s multi-label evaluation-metric standard, earned named project responsibility, and then owned multilingual LLM features that shipped.</p>
           </li>
           <li class="nested"><span class="when">2024 – Present</span><span class="role">LLM adapters, evaluation and prompt optimization</span> <span class="sub">· Input Experience – NLP</span>
-            <ul class="work-list">
-              <li><span class="work-name"><a href="#tone">Multilingual tone adapters</a></span><span class="detail">I took over the Professional tone’s internationalization and adapter training, built the data-synthesis pipelines, and took the LoRA adapters through sign-off to release in 20+ locales over two waves. I also moved the Friendly tone onto new base models.</span></li>
+            <ul class="work-list" role="list">
+              <li><span class="work-name"><a href="#tone">Multilingual tone adapters</a></span><span class="detail">I took over the Professional tone’s internationalization and adapter training, built the data-synthesis pipelines, fine-tuned the LoRA adapters, and shipped them in 20+ locales over two waves. I also moved the Friendly tone onto new base models.</span></li>
               <li><span class="work-name"><a href="#writing-tools">End-to-end feature ownership</a></span><span class="detail">I owned a Writing Tools feature through prototyping, data synthesis and evaluation, and built its per-locale prompt-optimization loop on the team’s platform. The feature reached its shipping evaluation targets.</span></li>
-              <li><span class="work-name">Ground-truth benchmarking and adjudication</span><span class="detail">I built the evaluation datasets, benchmarked the automated grader against human grades, and adjudicated every disagreement. The grader proved more defensible than the human baseline, and most of the rest traced to unreliable human labels.</span></li>
+              <li><span class="work-name"><a href="#writing-tools">Ground-truth benchmarking and adjudication</a></span><span class="detail">I built the evaluation datasets, benchmarked the automated grader against human grades, and adjudicated every disagreement. The grader proved more defensible than the human baseline, and most of the rest traced to unreliable human labels.</span></li>
             </ul>
           </li>
           <li class="nested"><span class="when">2023 – 2024</span><span class="role">Multilingual keyboard language models</span> <span class="sub">· Input Experience – NLP</span>
-            <ul class="work-list">
+            <ul class="work-list" role="list">
               <li><span class="work-name"><a href="#handwriting">Handwriting language models</a></span><span class="detail">I extended the character n-gram pipeline to 13 locales and shipped its models behind Scribble, Live Text, Smart Script and Visual Intelligence.</span></li>
               <li><span class="work-name">Czech and Italian keyboard models</span><span class="detail">I shipped both, integrating the per-locale models and their lexicon and unigram pipelines into autocorrect, predictive typing and QuickPath, and cleared release-blocking swipe defects.</span></li>
               <li><span class="work-name"><a href="#vocabulary">Privacy-preserving vocabulary learning</a></span><span class="detail">I used differentially private on-device statistics to bring out-of-lexicon terms and typed names into the keyboard lexicon. It shipped on 5 platforms.</span></li>
@@ -227,21 +232,21 @@
             </ul>
           </li>
           <li class="nested"><span class="when">2019 – 2023</span><span class="role">On-device intelligence platform</span> <span class="sub">· Proactive Intelligence</span>
-            <ul class="work-list">
+            <ul class="work-list" role="list">
               <li><span class="work-name">Multilingual index</span><span class="detail">I delivered the full Spanish index, then wrote the multilingual build, with parallel per-language builds across 6 languages, selectable combinations and automated asset upload. Later I decoupled its data from language-specific builds, cutting about 85% of the asset weight from OS images.</span></li>
               <li><span class="work-name">Neural topic classifier</span><span class="detail">I authored the dataset spec, the architecture proposal and the team’s multi-label evaluation-metric standard. About ten months later I was named the engineering owner of the project to replace the shipped Lucene/Java topic classifier with a neural one, sized to the Neural Engine’s on-device memory budget.</span></li>
-              <li><span class="work-name"><a href="#tab-groups">Safari Tab Group naming</a></span><span class="detail">I rolled per-page topics up through a knowledge graph, wrote the naming UI and the topic lookup, and shipped suggested Tab Group names on iOS and macOS.</span></li>
+              <li><span class="work-name"><a href="#tab-groups">Safari Tab Group naming</a></span><span class="detail">I mapped a web-directory taxonomy onto knowledge-graph entities, wrote the naming UI and the topic lookup, and shipped suggested Tab Group names on iOS and macOS.</span></li>
             </ul>
           </li>
           <li><span class="when">2018 – 2019</span><span class="role">Software Engineer, Siri</span> <span class="sub">· Rotation program: six three-month projects</span>
-            <ul class="work-list">
+            <ul class="work-list" role="list">
               <li><span class="work-name">Siri Knowledge Graph <span class="sub">· two rotations</span></span><span class="detail">I automated knowledge-graph gap detection that routed candidate facts to crowd verification, and reworked clustering and indexing so annotators could clean multilingual training sets.</span></li>
-              <li><span class="work-name">Proactive Intelligence</span><span class="detail">I stood up a search-quality harness across 4 retrieval backends behind one rating UI.</span></li>
-              <li><span class="work-name">Siri Domains</span><span class="detail">I shipped NBA Draft answers to iOS, macOS, watchOS and tvOS.</span></li>
+              <li><span class="work-name"><a href="#siri">Proactive Intelligence</a></span><span class="detail">I stood up a search-quality harness across 4 retrieval backends behind one rating UI.</span></li>
+              <li><span class="work-name"><a href="#siri">Siri Domains</a></span><span class="detail">I shipped NBA Draft answers to iOS, macOS, watchOS and tvOS.</span></li>
               <li><span class="work-name"><a href="#siri">Core ML and Siri Visual Intelligence</a></span><span class="detail">I prototyped a Core ML profiler in Xcode that exposed per-layer latency and compute-unit placement, and extended an on-device text classifier to product categories for visual search.</span></li>
             </ul>
           </li>
-          <li><span class="when">2015 – 2017</span><span class="role">Software engineering intern</span> <span class="sub">· Google (YouTube abuse engineering, 2017), Box (2016), IDMLoco (2015)</span></li>
+          <li><span class="when">2015 – 2017</span><span class="role">Software Engineering Intern</span> <span class="sub">· Google (YouTube abuse engineering, 2017), Box (2016), IDMLoco (2015)</span></li>
         </ol>
       </section>
 

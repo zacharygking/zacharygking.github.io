@@ -20,7 +20,7 @@
   --fail: #c2412d;
 
   --max: 62rem;
-  --rail: 11rem;
+  --rail: 13rem;
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
   --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
@@ -91,7 +91,6 @@ a:hover {
 a:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
-  border-radius: 2px;
 }
 
 [id] {
@@ -127,10 +126,6 @@ a:focus-visible {
   text-decoration: none;
 }
 
-.mark:focus-visible {
-  border-radius: 50%;
-}
-
 .nav {
   display: flex;
   align-items: center;
@@ -150,7 +145,11 @@ a:focus-visible {
   color: var(--text);
 }
 
-.nav .resume {
+.topbar nav {
+  margin-left: auto;
+}
+
+.resume {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
@@ -159,17 +158,15 @@ a:focus-visible {
   border-radius: 0.5rem;
   background: var(--card);
   color: var(--text);
+  font-size: 0.875rem;
   font-weight: 600;
+  text-decoration: none;
   white-space: nowrap;
 }
 
-.nav .resume:hover {
+.resume:hover {
   border-color: var(--accent);
   color: var(--accent);
-}
-
-.nav .resume:focus-visible {
-  border-radius: 0.5rem;
 }
 
 .resume svg {
@@ -178,9 +175,40 @@ a:focus-visible {
   height: 0.9375rem;
 }
 
+/* Phones: mark and Resume on the first row, section links on a second. Tap targets are 44px. */
 @media (max-width: 36rem) {
-  .nav li:not(:last-child) {
-    display: none;
+  .topbar {
+    flex-wrap: wrap;
+    row-gap: 0.25rem;
+  }
+
+  .topbar nav {
+    order: 3;
+    flex-basis: 100%;
+    margin-left: 0;
+  }
+
+  .resume {
+    min-height: 2.75rem;
+    margin-left: auto;
+  }
+
+  .mark {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+  }
+
+  .contact a,
+  .work-name a {
+    display: inline-block;
+    padding-block: 0.7rem;
+    margin-block: -0.7rem;
   }
 }
 
@@ -286,16 +314,25 @@ section {
 }
 
 h2 {
+  margin: 0 0 1rem;
+  font: 700 1.5rem/1.2 var(--serif);
+}
+
+/* A heading with a short note beside it */
+.section-head {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
   gap: 0.25rem 1rem;
-  margin: 0 0 1rem;
-  font: 700 1.5rem/1.2 var(--serif);
+  margin-bottom: 1rem;
 }
 
-h2 small {
+.section-head h2 {
+  margin: 0;
+}
+
+.section-note {
   color: var(--muted);
   font: 500 0.75rem/1.4 var(--mono);
   letter-spacing: 0.04em;
@@ -382,6 +419,13 @@ h2 small {
   font: 500 11px var(--mono);
 }
 
+/* Phones and two-column tablets draw the 400-wide illustrations small, so their labels grow */
+@media (max-width: 64rem) {
+  .art text {
+    font-size: 13px;
+  }
+}
+
 .art .glyph {
   fill: var(--text);
   font: 600 15px var(--mono);
@@ -400,17 +444,17 @@ h2 small {
   fill: var(--accent);
 }
 
-:is(.art, .defs) .node {
+.art .node {
   fill: var(--card);
   stroke: var(--rule-strong);
 }
 
-:is(.art, .defs) .hot,
+.art .hot,
 :is(.art, .defs) .dot {
   fill: var(--accent);
 }
 
-:is(.art, .defs) .ring {
+.defs .ring {
   fill: var(--card);
   stroke: var(--accent);
   stroke-width: 1.5;
@@ -421,7 +465,7 @@ h2 small {
   opacity: 0.5;
 }
 
-:is(.art, .defs) .arrowhead {
+.defs .arrowhead {
   fill: var(--muted);
 }
 
@@ -485,11 +529,15 @@ h2 small {
   padding: 0 0 1.125rem 1.25rem;
 }
 
+.timeline > li:last-child {
+  padding-bottom: 0;
+}
+
 .timeline > li::before {
   content: "";
   position: absolute;
   left: -7px;
-  top: 0.4375rem;
+  top: calc(0.78125rem * 0.75 - 6px);
   width: 12px;
   height: 12px;
   border: 2px solid var(--accent);
@@ -504,7 +552,7 @@ h2 small {
 
 .timeline > .nested::before {
   left: calc(-1.125rem - 5px);
-  top: 0.5625rem;
+  top: calc(0.78125rem * 0.75 - 4px);
   width: 8px;
   height: 8px;
   border-color: var(--muted);
@@ -527,7 +575,7 @@ h2 small {
 }
 
 .role-note {
-  max-width: 44rem;
+  max-width: 38rem;
   margin-top: 0.25rem;
   color: var(--muted);
   font-size: 0.9375rem;
@@ -537,7 +585,7 @@ h2 small {
 .work-list {
   display: grid;
   gap: 0.875rem;
-  max-width: 44rem;
+  max-width: 38rem;
   margin: 0.75rem 0 0.5rem;
   padding: 0;
   list-style: none;
@@ -655,5 +703,35 @@ h2 small {
   to {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* Print: always the light palette, without navigation or motion */
+
+@media print {
+  :root {
+    --bg: #ffffff;
+    --card: #ffffff;
+    --art: #f7f8fb;
+    --text: #111318;
+    --muted: #555a64;
+    --rule: #e3e5e9;
+    --rule-strong: #cdd2db;
+    --accent: #2f54c8;
+    --accent-soft: #e6ecfb;
+    --on-accent: #ffffff;
+    --pass: #2e8b57;
+    --near: #c98a1b;
+    --fail: #c2412d;
+  }
+
+  .topbar nav,
+  .resume {
+    display: none;
+  }
+
+  .case {
+    animation: none;
+    break-inside: avoid;
   }
 }

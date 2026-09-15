@@ -15,18 +15,12 @@
     width: 1200px;
     height: 630px;
     display: grid;
-    grid-template-rows: auto 1fr auto;
-    padding: 60px 72px 56px;
+    grid-template-rows: 1fr auto;
+    padding: 64px 72px 60px;
     background: #f3f4f6;
     color: #111318;
     font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   }
-  .top { display: flex; align-items: center; gap: 18px; }
-  .mark {
-    display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%;
-    background: #111318; color: #f3f4f6; font: 700 22px/1 Charter, Georgia, serif;
-  }
-  .url { color: #555a64; font: 500 22px/1 ui-monospace, "SF Mono", Menlo, monospace; }
   .hero { align-self: center; }
   .eyebrow { margin: 0 0 14px; color: #555a64; font: 600 22px/1.3 ui-monospace, "SF Mono", Menlo, monospace; letter-spacing: 0.06em; text-transform: uppercase; }
   h1 { margin: 0; font: 700 104px/1 Charter, "Bitstream Charter", Georgia, serif; letter-spacing: -0.02em; }
@@ -35,10 +29,9 @@
   .stats div { display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 4px; padding: 18px 20px 0 0; }
   .stats div + div { padding-left: 20px; border-left: 2px solid #e3e5e9; }
   .stats dd { margin: 0; font: 700 56px/1.05 Charter, Georgia, serif; }
-  .stats dt { color: #555a64; font-size: 20px; line-height: 1.3; }
+  .stats dt { color: #555a64; font-size: 28px; line-height: 1.25; }
 </style>
 <div class="card">
-  <div class="top"><span class="mark">ZK</span><span class="url">zacharygking.github.io</span></div>
   <div class="hero">
     <p class="eyebrow">Applied ML Engineer at Apple</p>
     <h1>Zachary King</h1>
@@ -48,6 +41,6 @@
     <div><dt>years building ML at Apple</dt><dd>8</dd></div>
     <div><dt>locales for the Professional tone</dt><dd>20+</dd></div>
     <div><dt>platforms for keyboard vocabulary learning</dt><dd>5</dd></div>
-    <div><dt>features shipped on the handwriting models</dt><dd>4</dd></div>
+    <div><dt>features running the handwriting models</dt><dd>4</dd></div>
   </dl>
 </div>

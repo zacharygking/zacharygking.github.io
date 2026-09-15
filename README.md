@@ -1,7 +1,7 @@
 # zacharygking.github.io
 
-My personal site: one static page in plain HTML and CSS. No build step, no JavaScript, no
-dependencies.
+My personal site: one static page in plain HTML and CSS. No build step, no dependencies, and
+no JavaScript on the page.
 
 **Everything in this repo is public, including this README and the full commit history.**
 Don't commit private notes.
@@ -16,6 +16,8 @@ Don't commit private notes.
   from `source/icon.html`.
 - `og.png`: the 1200×630 link-preview image, rendered from `source/og.html`. Both source pages
   start with the headless Chrome command that renders them.
+- `favicon.ico`: the 32px icon wrapped as an ICO, for tools that only ask for `/favicon.ico`.
+- `robots.txt`: allows all crawlers.
 - `.nojekyll`: tells GitHub Pages to serve the files as they are.
 
 ## Editing
@@ -25,9 +27,9 @@ Don't commit private notes.
   sentences. Illustration colors come from classes in `styles.css`, and the shared arrowhead
   and dot patterns live in the hidden `<svg class="defs">` at the top of the page.
 - **Stats** under the name are a `<dl class="stats">`. Keep each label specific about what
-  its number counts.
-- **Experience:** work that has a card links to it by `id`
-  (`<li class="linked"><a href="#tone">…</a></li>`).
+  its number counts. `source/og.html` repeats them, so update it and re-render `og.png` too.
+- **Experience:** each work item is a `.work-name` and a `.detail`. Work that has a card links to
+  it by `id` (`<span class="work-name"><a href="#tone">…</a></span>`).
 - **Projects:** a commented-out `#projects` section sits right after `#work`. Uncomment it
   when there's something public to show.
 - **Resume:** overwrite `resume.pdf` with the site build of the resume (no phone number),
