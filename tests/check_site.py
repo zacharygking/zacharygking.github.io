@@ -7,9 +7,10 @@
     python3 tests/check_site.py --root DIR        # check another copy of the site
 
 Checks that tags are balanced and ids unique; that every in-page link, illustration reference and
-local file resolves; that the head has the mobile and color-scheme tags; that every color token has a
-dark-mode and a print value; that the stats row matches source/og.html; that no phone number appears;
-and that the page and resume.pdf list the same contact links. Exits 1 if any check fails.
+local file resolves; that the head has the mobile and color-scheme tags; that every script is a
+third-party file pinned by an integrity hash; that every color token has a dark-mode and a print value;
+that the stats row matches source/og.html; that no phone number appears; and that the page and
+resume.pdf list the same contact links. Exits 1 if any check fails.
 """
 
 import argparse
@@ -42,6 +43,7 @@ class Page(HTMLParser):
         self.links = []  # (tag, attribute, value) for href, src and content
         self.attr_values = []
         self.metas = []
+        self.scripts = []  # (line, attributes)
         self.text = []
         self.problems = []
         self._open = []  # (tag, line)
@@ -85,6 +87,8 @@ class Page(HTMLParser):
             self.lang = attrs.get("lang")
         if tag == "meta":
             self.metas.append(attrs)
+        if tag == "script":
+            self.scripts.append((self.getpos()[0], attrs))
         for name, value in attrs.items():
             self.attr_values.append(value)
             if name == "id":
@@ -147,6 +151,21 @@ def check_head(page):
     for scheme in ("light", "dark"):
         if not any(f"prefers-color-scheme: {scheme}" in meta.get("media", "") for meta in named("theme-color")):
             problems.append(f"no theme-color meta for {scheme} mode")
+    return problems
+
+
+def check_scripts(page):
+    """The page has no JavaScript of its own, and each third-party script is pinned to a hash and never blocks the page."""
+    problems = []
+    for line, attrs in page.scripts:
+        src = attrs.get("src", "")
+        if not src.startswith("https://"):
+            problems.append(f"line {line}: <script> isn't a third-party file over https; the page has no JavaScript of its own")
+            continue
+        if not attrs.get("integrity", "").startswith(("sha256-", "sha384-", "sha512-")) or attrs.get("crossorigin") != "anonymous":
+            problems.append(f'line {line}: <script src="{src}"> needs an integrity hash and crossorigin="anonymous"')
+        if "async" not in attrs and "defer" not in attrs:
+            problems.append(f'line {line}: <script src="{src}"> needs async or defer so it never blocks the page')
     return problems
 
 
@@ -266,6 +285,7 @@ def main():
     checks = [
         ("tags, ids, in-page links and local files", check_structure(root, page)),
         ("mobile and color-scheme head tags", check_head(page)),
+        ("scripts are third-party files pinned by an integrity hash", check_scripts(page)),
         ("every color token has dark-mode and print values", check_theme(root)),
         ("stats row matches source/og.html", check_stats(root, html)),
         ("no phone numbers", check_phone_numbers(root, pdf_text)),

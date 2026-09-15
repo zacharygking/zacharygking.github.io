@@ -27,6 +27,8 @@ WIDTHS = PHONE_WIDTHS + [768, 1280]
 SCREENSHOT_WIDTHS = {390, 768, 1280}
 PHONE_LAYOUT_MAX = 576  # 36rem: below this, styles.css switches to the phone top bar and 44px tap targets
 AXE_TAGS = ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"]
+ANALYTICS = re.compile(r"^https://(gc\.zgo\.at|[\w-]+\.goatcounter\.com)/")  # GoatCounter's count.js and its hits
+HITS = re.compile(r"^https://[\w-]+\.goatcounter\.com/")
 
 
 @pytest.fixture(scope="session")
@@ -48,7 +50,7 @@ def browser(request, pw):
 def open_page(browser):
     contexts = []
 
-    def open_at(width, scheme="light"):
+    def open_at(width, scheme="light", blocked=ANALYTICS):
         phone = width <= PHONE_LAYOUT_MAX
         context = browser.new_context(
             viewport={"width": width, "height": 800},
@@ -60,6 +62,8 @@ def open_page(browser):
             reduced_motion="reduce",
         )
         contexts.append(context)
+        # Blocked analytics requests keep the checks off the network and out of the counts
+        context.route(blocked, lambda route: route.abort())
         page = context.new_page()
         page.goto(PAGE_URL)
         return page
@@ -140,3 +144,18 @@ def test_accessibility(open_page, width, scheme):
             detail = (node.get("failureSummary") or "").splitlines()[-1].strip()
             problems.append(f"{violation['id']}: {' '.join(map(str, node['target']))}: {detail}")
     assert not problems, f"{len(problems)} accessibility problems at {width}px in {scheme} mode:\n" + "\n".join(problems)
+
+
+def test_analytics_script(open_page):
+    """GoatCounter's count.js loads, still matches its integrity hash, and binds the click events. Hits stay blocked."""
+    page = open_page(1280, blocked=HITS)
+    state = page.evaluate(
+        """() => ({
+            ran: typeof window.goatcounter?.count === 'function',
+            unbound: [...document.querySelectorAll('[data-goatcounter-click]')]
+                .filter(el => !el.dataset.goatcounterBound)
+                .map(el => el.dataset.goatcounterClick),
+        })"""
+    )
+    assert state["ran"], "GoatCounter's count.js didn't run: it failed to load or no longer matches its integrity hash"
+    assert not state["unbound"], f"click events weren't bound for {state['unbound']}"

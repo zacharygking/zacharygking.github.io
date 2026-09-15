@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v7
       - name: Install pdftotext
         run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
-      - name: Links, files, color tokens, stats, phone numbers and contact links
+      - name: Links, files, scripts, color tokens, stats, phone numbers and contact links
         run: python3 tests/check_site.py --require-pdf
 
   render:
