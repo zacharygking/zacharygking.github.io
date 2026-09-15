@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zachary King · Applied ML Engineer</title>
+  <meta name="description" content="Zachary King is an Applied ML Engineer at Apple working on LLM adapters, evaluation, and on-device language models.">
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Zachary King · Applied ML Engineer">
+  <meta property="og:description" content="Applied ML Engineer at Apple working on LLM adapters, evaluation, and on-device language models.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <h1>Zachary King</h1>
+      <p class="tagline">Applied ML Engineer at Apple: LLM adapters, evaluation, and on-device language models</p>
+      <ul class="contact">
+        <li><a href="mailto:zacharygking@icloud.com">zacharygking@icloud.com</a></li>
+        <li><a href="https://www.linkedin.com/in/zacharygking/" rel="me">LinkedIn</a></li>
+        <li><a class="button" href="resume.pdf" download="Zachary-King-Resume.pdf">Resume (PDF)</a></li>
+      </ul>
+    </header>
+
+    <main>
+      <section id="about" aria-label="About">
+        <p class="lead">I’ve spent 8 years doing applied ML at Apple. I authored a team’s multi-label evaluation-metric standard, earned named project responsibility, and then owned multilingual LLM features that shipped. I was engineering owner of the Professional tone’s internationalization across 20+ locales in Writing Tools. Then I became full owner of another text feature.</p>
+      </section>
+
+      <section id="work" aria-labelledby="work-title">
+        <h2 id="work-title">Selected work</h2>
+
+        <article class="case">
+          <p class="kicker">Writing Tools · LLM adapters</p>
+          <h3>Multilingual tone adapters</h3>
+          <p class="metric"><strong>20+</strong> locales, shipped over two waves</p>
+          <p class="body">I owned the internationalization of the Professional tone in Writing Tools. I built the data-synthesis pipelines, fine-tuned the LoRA adapters on locale data produced with localization partners, and took them through sign-off to release. They shipped in 20+ locales over two waves. Separately, I moved the Friendly tone onto new base models.</p>
+        </article>
+
+        <article class="case">
+          <p class="kicker">Keyboard · Differential privacy</p>
+          <h3>Privacy-preserving vocabulary learning</h3>
+          <p class="metric"><strong>5</strong> platforms shipped</p>
+          <p class="body">I used differentially private on-device statistics to bring words the keyboard didn’t know, including names people type, into its lexicon. I won privacy and legal approval for it at a leadership review, and it shipped on 5 platforms.</p>
+        </article>
+
+        <article class="case">
+          <p class="kicker">Handwriting · On-device models</p>
+          <h3>Handwriting language models</h3>
+          <p class="metric"><strong>~290×</strong> on-device compression</p>
+          <p class="body">I extended the character n-gram pipeline to 13 locales and shipped its models behind Scribble, Live Text, Smart Script, and Visual Intelligence. The n-grams compressed about 290× on device.</p>
+        </article>
+
+        <article class="case">
+          <p class="kicker">On-device ML · Evaluation</p>
+          <h3>Neural topic classifier</h3>
+          <p class="metric"><strong class="word">Proposal → owner</strong> about ten months apart</p>
+          <p class="body">I authored the dataset spec and architecture proposal for replacing a shipped Lucene/Java topic classifier with a neural one, along with the team’s multi-label evaluation-metric standard. About ten months later, I was named engineering owner of that replacement, sized to the Neural Engine’s on-device memory budget.</p>
+        </article>
+      </section>
+
+      <!--
+      Projects: uncomment when there's something public to show.
+
+      <section id="projects" aria-labelledby="projects-title">
+        <h2 id="projects-title">Projects</h2>
+        <article class="case">
+          <p class="kicker">Topic · Stack</p>
+          <h3>Project name</h3>
+          <p class="metric"><strong>Metric</strong> label</p>
+          <p class="body">Two to four sentences, with a link to the repo.</p>
+        </article>
+      </section>
+      -->
+
+      <section id="experience" aria-labelledby="experience-title">
+        <h2 id="experience-title">Experience</h2>
+        <ol class="rows">
+          <li><span class="when">2018 – Present</span><div><strong>Apple Inc.</strong></div></li>
+          <li><span class="when">2019 – Present</span><div>Applied ML Engineer</div></li>
+          <li class="nested"><span class="when">2024 – Present</span><div>LLM adapters, evaluation and prompt optimization<span class="sub">Input Experience – NLP</span></div></li>
+          <li class="nested"><span class="when">2023 – 2024</span><div>Multilingual keyboard language models<span class="sub">Input Experience – NLP</span></div></li>
+          <li class="nested"><span class="when">2019 – 2023</span><div>On-device intelligence platform<span class="sub">Proactive Intelligence</span></div></li>
+          <li><span class="when">2018 – 2019</span><div>Software Engineer, Siri<span class="sub">Rotation program: six three-month projects</span></div></li>
+          <li><span class="when">2015 – 2017</span><div>Software engineering intern<span class="sub">Google (YouTube abuse engineering, 2017), Box (2016), IDMLoco (2015)</span></div></li>
+        </ol>
+      </section>
+
+      <section id="skills" aria-labelledby="skills-title">
+        <h2 id="skills-title">Skills</h2>
+        <dl class="rows">
+          <div><dt>ML &amp; evaluation</dt><dd>LLM-as-judge evaluation, benchmark and rubric design, human evaluation protocols, prompt optimization (DSPy/GEPA), LoRA/PEFT fine-tuning, NLP, on-device model compression</dd></div>
+          <div><dt>Languages</dt><dd>Python, Java, Swift, Objective-C, C, Go</dd></div>
+          <div><dt>Frameworks &amp; infrastructure</dt><dd>PyTorch, Core ML, pandas, Lucene, distributed GPU training, CI/CD</dd></div>
+        </dl>
+      </section>
+
+      <section id="background" aria-labelledby="background-title">
+        <h2 id="background-title">Patent and education</h2>
+        <dl class="rows">
+          <div><dt>Patent</dt><dd>Co-inventor, US Patent 11,620,033 B2: <cite>Systems and Methods for Proactively Identifying and Providing an Internet Link on an Electronic Device</cite>. Apple Inc., 2023.</dd></div>
+          <div><dt>Education</dt><dd>B.S. Computer Science, University of California, Los Angeles, 2018</dd></div>
+        </dl>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Zachary King</p>
+    </footer>
+  </div>
+</body>
+</html>
